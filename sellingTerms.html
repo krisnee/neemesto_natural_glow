@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <link rel="icon" type="image/x-icon" href="images/beauty-salon-icon.jpg">
+  <style>
+    .navbar-scroll .nav-link,
+    .navbar-scroll .navbar-toggler-icon,
+    .navbar-scroll .navbar-brand {
+        color: #fff;
+    }
+    .navbar-scrolled .nav-link,
+    .navbar-scrolled .navbar-toggler-icon,
+    .navbar-scrolled .navbar-brand {
+        color: #fff;
+    }
+    .navbar-scroll,
+    .navbar-scrolled {
+        background-color: #cbbcb1;
+    }
+    .mask-custom {
+        backdrop-filter: blur(500px);
+        background-color: rgba(255, 255, 255, .15);
+    }
+    .navbar-brand {
+        font-size: 1.75rem;
+        letter-spacing: 3px;
+    }
+    main {
+        flex: 1;
+    }
+    body {
+        background-image: url(images/beautysalon.jpg);
+        background-position: center;
+        background-size: 120%;
+        background-repeat: no-repeat;
+        background-color: #fdfbde;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+        font-family: arial;
+    }
+    .wrapper{
+        position: fixed;
+        margin-top: 5%;
+    }
+    .sidebar{
+        position: fixed;
+        width: 10%;
+        height: 40%;
+        padding: 20px 0;
+        margin-left: 35px;
+        border: rgba(255, 255, 255, .15) solid;
+        background: rgba(255, 255, 255, .15);
+    }
+    .text-muted{
+        color: #adb5bd!important;
+    }
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        height: 50px;
+        width: 20px;
+        outline: black;
+        background-color: rgba(0, 0, 0, 0.3);
+        background-size: 100%, 100%;
+        border-radius: 20%;
+        border: 1px solid black;
+    }
+    .text-container {
+      display: flex;
+      justify-content: center;
+      padding: 120px;
+    }
+    .text-box {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-box h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .text-box h3 {
+      font-size: 1.5em;
+      margin-top: 25px;
+      margin-bottom: 10px;
+    }
+
+    .text-box ul {
+      list-style: disc;
+      margin-left: 20px;
+    }
+    ul{
+        padding-bottom: 20px; 
+    }
+    ul li a img{
+        background: #66BB6A;
+        top: 0;
+        border: none;
+        width: 20px;
+    }
+     .badge {
+        padding-left: 9px;
+        padding-right: 9px;
+        -webkit-border-radius: 9px;
+        -moz-border-radius: 9px;
+        border-radius: 9px;
+    }
+    .label-warning[href],
+    .badge-warning[href] {
+        background-color: #c67605;
+    }
+    #lblCartCount {
+        font-size: 17px;
+        background: #f37070;
+        color: #fff;
+        padding: 0 5px;
+        vertical-align: top;
+        margin-left: -10px; 
+    }
+    a {
+        text-decoration: none;
+    }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top mask-custom shadow-0">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><span style="color:black;">Natural Glow</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto" style="font-size: large;">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Avaleht</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Teenused</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="eshop.html">Tooted</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blogi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacts.html">Kontaktid</a>
+          </ul>
+          <div class="d-flex align-items-center">
+              <div class="me-3">
+                <a href="#CartModal" data-bs-toggle="modal" data-bs-target="#CartModal"><img src="images/shopping_bag.png" style="width: 30px; height: 30px;"></a>
+                <span class='badge badge-warning' id='lblCartCount'> 2 </span>
+              </div>
+                <button class="btn px-1 me-1" data-bs-target="#LoginModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">
+                  Logi sisse
+              </button>
+              <button class="btn px-1 me-1" data-bs-target="#SignupModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">
+                  Registreeri kasutajaks
+              </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- Navbar -->
+  <!-- Login modal -->
+  <div class="modal fade" id="LoginModalToggle" aria-hidden="true" aria-labelledby="LoginModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background-color:#eff0e3;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="LoginModalToggleLabel">Logi sisse</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+          <div class="form-floating mb-3">
+           <input type="email" id="email" placeholder="name@email.ee" class="form-control" required>
+           <label for="email" aria-describedby="emailHelp">E-mail</label>
+       </div>
+          <div class="form-floating">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+              <label for="floatingPassword">Password</label>
+          </div>
+          <div class="col-4 mt-2">
+            <button type="submit" class="btn btn-dark">
+                Logi sisse
+            </button>
+          </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div>Sul ei ole kasutajat?
+          </div>
+        <button class="btn btn-dark" data-bs-target="#SignupModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Registreeri kasutajaks</button>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="modal fade" id="SignupModalToggle" aria-hidden="true" aria-labelledby="SignupModalToggleLabel" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color:#eff0e3;">
+          <div class="modal-header">
+            <h5 class="modal-title" id="SignupModalToggleLabel">Registreeri kasutajaks</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="form-floating col-6 mb-3">
+                  <input type="firstname" class="form-control" id="floatingInput" placeholder="First Name" required>
+                  <label for="floatingInput" style="margin-left: 10px;">Eesnimi</label>
+              </div>
+              <div class="form-floating col-6 mb-3">
+                <input type="lastname" class="form-control" id="floatingInput" placeholder="Last Name" required>
+                <label for="floatingInput" style="margin-left: 10px;">Perekonnanimi</label>
+              </div>
+            </div>
+            <form action="">
+            <div class="form-floating mb-3">
+                <input type="email" id="email"class="form-control" placeholder="name@email.ee" required>
+                <label for="email" aria-describedby="emailHelp">E-mail</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                <label for="floatingPassword">Salasõna</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="confirm_floatingPassword" placeholder="confirm Password" required>
+                <label for="floatingPassword">Korda salasõna</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                <label class="form-check-label" for="flexCheckDefault"> Olen tutvunud ja nõustun <a href="terms.html">kasutajatingimustega</a>
+                </label>
+            </div>
+            <div class="col-5 mt-2">
+              <button class="btn btn-dark">
+                  Registreeri kasutajaks
+              </button>
+            </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div>Oled juba kasutaja?</div>
+          <button class="btn btn-dark" data-bs-target="#LoginModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Logi sisse</button>
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  <a class="btn btn-primary" data-bs-toggle="modal" href="#LoginModalToggle" role="button">Logi sisse</a> 
+  <!-- Login Modal-->
+  <!-- Cart Modal -->
+  <div class="modal fade" id="CartModal" tabindex="-1" aria-labelledby="CartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content" style="background-color: #f1f1e8e8;">
+        <div class="modal-header">
+        <h5 class="modal-title" id="CartModalLabel">Ostukorv</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="card">
+          <div class="row">
+              <div class="col-8">
+                  <div class="row main align-items-center">
+  
+                      <div class="col-2"><span class="close"></span></div>
+                  </div>
+                  <div class="row main align-items-center border-top">
+                      <div class="col-2"><img class="img-fluid" src="images/DailyMoisturiser.jpg"></div>
+                      <div class="col-4">
+                          <div class="row">Niisutav päevakreem</div>
+                      </div>
+                      <div class="col-2">
+                          <div class="bottom d-flex flex-row justify-content-center mt-3">
+                              <div class="input-group mb-3">
+                                  <span class="input-group-text">+</span>
+                                  <input type="text" class="form-control" value="1">
+                                  <span class="input-group-text">-</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-2">78.00 €</div>
+                      <div class="col-2"><span class="close">&#10005;</span></div>
+                  </div>
+              </div>
+              <div class="col-4">
+                  <div class="card m-2" style="background-color: #fafceb;">
+                  <div class="row d-flex justify-content-center m-2">
+                      <div><h5><b>Kokku</b></h5></div>
+                      <hr class="line">
+                      <div class="d-flex justify-content-between information"><span>Tooteid <b>1</b></span><span>78 €</span></div>
+                      <div>
+                          Kohaletoimetamine - 2.99€
+                          </select>
+                      </div>
+                      <hr class="line">
+                      <div class="d-flex justify-content-between information"><span>Kuulub tasumisele</span><span>80.99 €</span></div>
+                  </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal"><a href="eshop.html" style="color: #ffffff;">Tagasi e-poodi</a></button>
+        <button type="button" class="btn btn-dark"><a href="#" style="color: #ffffff;">Vormista tellimus</a></button>
+        </div>
+    </div>
+    </div>
+</div>
+ <!-- Cart Modal -->
+ <!-- Main Modal -->
+  <div class="text-container">
+    <div class="text-box">
+      <h2>Müügitingimused</h2>
+        <hr>
+      <h3>1. Üldsätted</h3>
+      <p>Käesolevad müügitingimused (edaspidi "Tingimused") reguleerivad Natural Glow, registrikood 1231231, aadress Vilde tee 128, Tallinn, 12614 (edaspidi "Natural Glow") ja kliendi (edaspidi "Klient") vahelisi õigussuhteid seoses Natural Glow e-poest (edaspidi "E-pood") ostetud kaupade ja teenustega (edaspidi "Tooted").</p>
+      <p>E-poes toodete tellimisega kinnitab Klient, et on tutvunud käesolevate Tingimustega, mõistab neid ning nõustub neid järgima.</p>
+
+      <h3>2. Tooted ja hinnad</h3>
+      <ol>
+        <li>E-poes müüdavate Toodete hinnad on märgitud eurodes (€) ning sisaldavad käibemaksu.</li>
+        <li>Toodete hinnad ei sisalda transpordikulu, mis lisandub tellimuse vormistamisel vastavalt Kliendi valitud kohaletoimetamise viisile.</li>
+        <li>Natural Glow-l on õigus muuta Toodete hindu ette teatamata. Muudetud hinnad kehtivad alates nende avaldamisest E-poes.</li>
+      </ol>
+
+      <h3>3. Tellimuse esitamine ja kinnitamine</h3>
+      <ol>
+        <li>Klient saab tellimuse esitada, lisades soovitud Tooted ostukorvi ning vormistades tellimuse vastavalt E-poes antud juhistele.</li>
+        <li>Tellimuse esitamisel on Klient kohustatud andma õiged ja täielikud kontaktandmed.</li>
+        <li>Natural Glow kinnitab tellimuse vastuvõtmise e-posti teel. Tellimus loetakse kinnitatuks alates kinnitusmeili saatmisest.</li>
+        <li>Natural Glow-l on õigus keelduda tellimuse täitmisest, kui tellimus on vastuolus käesolevate Tingimustega või kui tellitud Tooteid ei ole võimalik tarnida.</li>
+      </ol>
+
+      <h3>4. Maksetingimused</h3>
+      <ol>
+        <li>Klient saab tasuda tellimuse eest järgmiste makseviisidega: pangalingiga ning ülekandega arve alusel.</li>
+        <li>Makse tuleb sooritada tellimuse vormistamisel.</li>
+        <li>Natural Glow-l on õigus peatada tellimuse täitmine, kui Klient ei ole tasunud tellimuse eest õigeaegselt.</li>
+      </ol>
+
+      <h3>5. Kohaletoimetamine</h3>
+      <ol>
+        <li>Natural Glow toimetab Tooted Kliendile vastavalt tellimusel märgitud aadressile.</li>
+        <li>Kohaletoimetamise tähtajad ja hinnad on toodud E-poe lehel "Kohaletoimetamise tingimused".</li>
+        <li>Natural Glow ei vastuta kohaletoimetamise viibimise eest, kui viibimine on tingitud asjaoludest, mis ei ole Natural Glow kontrolli all (nt vääramatu jõud, transpordiprobleemid).</li>
+      </ol>
+
+      <h3>6. Tagastusõigus</h3>
+      <ol>
+        <li>Kliendil on õigus tagastada tellitud Tooted 14 päeva jooksul alates kauba kättesaamisest.</li>
+        <li>Tagastusõiguse kasutamiseks peab Toode olema kasutamata, originaalpakendis ja müügikõlblik.</li>
+        <li>Tagastamiseks tuleb Kliendil esitada Natural Glow-le kauba ostmisest taganemise avaldus 14 päeva jooksul alates kauba kättesaamisest. Taganemisavalduse saate esitada e-posti aadressil <a href="mailto:[e-posti aadress]">salong@naturalglow.ee</a>.</li>
+        <li>Pärast taganemisavalduse esitamist tuleb toode tagastada Natural Glow-le 14 päeva jooksul. Toote tagastamise kulud kannab Klient, välja arvatud juhul, kui tagastamise põhjuseks on Natural Glow viga.</li>
+        <li>Natural Glow tagastab Kliendile tasutud summa 14 päeva jooksul alates taganemisavalduse saamisest, kasutades sama makseviisi, mida Klient kasutas tellimuse eest tasumisel.</li>
+        <li>Natural Glow-l on õigus keelduda tagastusest või vähendada tagastatavat summat, kui toode ei ole enam müügikõlblik Kliendi süül (nt toode on kahjustatud, määrdunud või puuduvad osad).</li>
+        <li>Kui Klient soovib toote vahetada, tuleb tal esmalt tagastada esialgne toode vastavalt käesolevatele tingimustele ning seejärel esitada uus tellimus soovitud tootele.</li>
+      </ol>
+
+      <h3>7. Garantii</h3>
+      <ol>
+        <li>Natural Glow pakub Toodetele 2-aastast garantiid vastavalt Eesti Vabariigi õigusaktidele.</li>
+        <li>Garantii ei kehti, kui Toote puudused on tingitud Kliendipoolsest valest kasutamisest, hooletusest või õnnetusjuhtumist.</li>
+        <li>Garantiinõude esitamiseks tuleb Kliendil esitada Natural Glow-le kauba ostmisest taganemise avaldus, kus on märgitud tellimuse number, toote puudused ning lisatud tõend ostu kohta.</li>
+        <li>Natural Glow kohustub parandama või asendama puudusega toote mõistliku aja jooksul. Kui parandamine või asendamine ei ole võimalik, tagastab Natural Glow Kliendile tasutud summa.</li>
+      </ol>
+
+      <h3>8. Lõppsätted</h3>
+      <ol>
+        <li>Käesolevatele Tingimustele kohaldatakse Eesti Vabariigi õigusakte.</li>
+        <li>Kõik Natural Glow ja Kliendi vahelised vaidlused lahendatakse läbirääkimiste teel. Kui kokkuleppele ei jõuta, lahendatakse vaidlus Harju Maakohtus vastavalt Eesti Vabariigi õigusaktidele.</li>
+        <li>Natural Glow-l on õigus muuta käesolevaid Tingimusi ette teatamata. Muudatused jõustuvad alates nende avaldamisest E-poes.</li>
+      </ol>
+      </div>
+  </div>
+<!-- Main Modal -->
+  <footer class="footer text-center py-3" style="background-color: #f1f1e8e8;">
+    <p class="grid_12"><a href="shippingInfo.html">Kohaletoimetamine</a>︱<a href="privacyPolicy.html">Privaatsuspoliitika</a>︱<a href="sellingTerms.html">Müügitingimused</a>︱<a href="userTerms.html">Kasutajatingimused</a>︱&copy; 2024 Natural Glow</p>
+  </footer>
+<!-- Footer -->
+</body>
+</html>
